@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  postgres_test:
+    image: postgres:12
+    container_name: postgres_test
+    environment:
+      - "TZ=Europe/Amsterdam"
+      - "POSTGRES_USER=docker"
+      - "POSTGRES_PASSWORD=docker"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./sql/ddl_test.sql:/docker-entrypoint-initdb.d/ddl_test.sql"
+      
